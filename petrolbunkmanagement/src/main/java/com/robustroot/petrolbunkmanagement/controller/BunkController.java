@@ -18,5 +18,10 @@ public class BunkController {
 	public String  insertBunk(@RequestBody Bunk bunk){
 		return bunkService.insertBunk(bunk);
 	}
+	
+	@RequestMapping(method=RequestMethod.POST , value="/updatebunk")
+	public String  updateBunk(@RequestBody Bunk bunk){
+		return bunkService.updateBunk(bunk);
+	}
 
 }

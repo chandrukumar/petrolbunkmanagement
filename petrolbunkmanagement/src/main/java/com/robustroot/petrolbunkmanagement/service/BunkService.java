@@ -12,7 +12,19 @@ public class BunkService {
 	BunkRepository bunkRepository;
 	
 	public String insertBunk(Bunk bunk){
+		if(bunkRepository.existsById(bunk.getBunkId())){
+			return "already exist";	
+		}else{
 		bunkRepository.save(bunk);
+		}
+		return "success";
+	}
+	public String updateBunk(Bunk bunk){
+		if(bunkRepository.existsById(bunk.getBunkId())){
+			bunkRepository.save(bunk);
+		}else{
+			return "not exist";	
+		}
 		return "success";
 	}
 
