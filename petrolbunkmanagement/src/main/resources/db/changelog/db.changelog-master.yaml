@@ -1,0 +1,36 @@
+databaseChangeLog:
+- preConditions:
+  - runningAs:
+      username: root
+- changeSet:
+    id: initialSetup-1
+    author: chandru
+    changes:
+    #Table for Bunk
+    - createTable:
+        tableName: bunk_details
+        columns:
+        - column:
+            name: bunkId
+            type: bigint
+            autoIncrement: false
+            constraints:
+              primaryKey: true
+              nullable: false
+        - column:
+            name: name
+            type: varchar(100)
+            constraints:
+              nullable: false
+        - column:
+            name: mobilenumber
+            type: varchar(100)
+        - column:
+            name: password
+            type: text
+            constraints:
+              nullable: false
+    - rollback:
+      - dropTable:
+          cascadeConstraints: true
+          tableName: bunk_details
