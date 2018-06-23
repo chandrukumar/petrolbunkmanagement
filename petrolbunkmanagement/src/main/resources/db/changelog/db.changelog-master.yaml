@@ -11,7 +11,7 @@ databaseChangeLog:
         tableName: bunk_details
         columns:
         - column:
-            name: bunkId
+            name: bunk_id
             type: bigint
             autoIncrement: false
             constraints:
